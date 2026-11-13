@@ -1,0 +1,64 @@
+<section class="spec-strip">
+  <div class="container spec-grid">
+    <article class="spec-card">
+      <div class="spec-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+      </div>
+      <p class="spec-label">{{ section.settings.spec_1_label }}</p>
+      <h2>{{ section.settings.spec_1_value }}</h2>
+      <p>{{ section.settings.spec_1_detail }}</p>
+    </article>
+
+    <article class="spec-card">
+      <div class="spec-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+      </div>
+      <p class="spec-label">{{ section.settings.spec_2_label }}</p>
+      <h2>{{ section.settings.spec_2_value }}</h2>
+      <p>{{ section.settings.spec_2_detail }}</p>
+    </article>
+
+    <article class="spec-card">
+      <div class="spec-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>
+      </div>
+      <p class="spec-label">{{ section.settings.spec_3_label }}</p>
+      <h2>{{ section.settings.spec_3_value }}</h2>
+      <p>{{ section.settings.spec_3_detail }}</p>
+    </article>
+
+    <article class="spec-card">
+      <div class="spec-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+      </div>
+      <p class="spec-label">{{ section.settings.spec_4_label }}</p>
+      <h2>{{ section.settings.spec_4_value }}</h2>
+      <p>{{ section.settings.spec_4_detail }}</p>
+    </article>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ECHO Spec Strip",
+  "settings": [
+    { "type": "text", "id": "spec_1_label", "label": "Spec 1 Label", "default": "Performance" },
+    { "type": "text", "id": "spec_1_value", "label": "Spec 1 Value", "default": "ARM-powered" },
+    { "type": "text", "id": "spec_1_detail", "label": "Spec 1 Detail", "default": "Desktop-class mobile chip" },
+    { "type": "text", "id": "spec_2_label", "label": "Spec 2 Label", "default": "Display" },
+    { "type": "text", "id": "spec_2_value", "label": "Spec 2 Value", "default": "HD widescreen" },
+    { "type": "text", "id": "spec_2_detail", "label": "Spec 2 Detail", "default": "Crisp, responsive touch panel" },
+    { "type": "text", "id": "spec_3_label", "label": "Spec 3 Label", "default": "Cooling" },
+    { "type": "text", "id": "spec_3_value", "label": "Spec 3 Value", "default": "Active cooling" },
+    { "type": "text", "id": "spec_3_detail", "label": "Spec 3 Detail", "default": "Sustained peak performance" },
+    { "type": "text", "id": "spec_4_label", "label": "Spec 4 Label", "default": "Connectivity" },
+    { "type": "text", "id": "spec_4_value", "label": "Spec 4 Value", "default": "Modular dock" },
+    { "type": "text", "id": "spec_4_detail", "label": "Spec 4 Detail", "default": "TV out, USB-C, Ethernet" }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Spec Strip"
+    }
+  ]
+}
+{% endschema %}

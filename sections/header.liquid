@@ -1,0 +1,70 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ routes.root_url }}" class="brand-mark" aria-label="{{ shop.name }} Home">
+      <span class="wordmark">
+        ECHO<span class="reg-mark">&reg;</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+      <a href="{{ routes.root_url }}" class="nav-link {% if request.page_type == 'index' %}nav-link-active{% endif %}">
+        Overview
+      </a>
+      <a href="/pages/console" class="nav-link {% if page.handle == 'console' or request.page_type == 'product' %}nav-link-active{% endif %}">
+        ECHO One
+      </a>
+      <a href="/pages/downloads" class="nav-link {% if page.handle == 'downloads' %}nav-link-active{% endif %}">
+        Downloads
+      </a>
+      <a href="/pages/support" class="nav-link {% if page.handle == 'support' %}nav-link-active{% endif %}">
+        Support
+      </a>
+      {% if collections['all'].products.size > 0 %}
+        <a href="{{ routes.all_products_collection_url }}" class="nav-link {% if request.page_type == 'collection' %}nav-link-active{% endif %}">
+          Store
+        </a>
+      {% endif %}
+    </nav>
+
+    <div class="header-actions">
+      <a href="{{ routes.cart_url }}" class="echo-btn echo-btn--ghost echo-btn--sm" aria-label="Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Cart</span>
+        {% if cart.item_count > 0 %}
+          <span class="cart-count-pill">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a href="{{ routes.account_url }}" class="echo-btn echo-btn--ghost echo-btn--sm">
+            {{ customer.first_name | default: 'Account' }}
+          </a>
+        {% else %}
+          <a href="{{ routes.account_login_url }}" class="echo-btn echo-btn--outline echo-btn--sm">
+            Sign in
+          </a>
+        {% endif %}
+      {% endif %}
+
+      <a href="#waitlist" class="echo-btn echo-btn--primary echo-btn--sm">
+        <span>{{ section.settings.cta_label }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Label",
+      "default": "Get early access"
+    }
+  ]
+}
+{% endschema %}

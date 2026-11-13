@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "support": {
+      "type": "echo-support",
+      "settings": {}
+    }
+  },
+  "order": [
+    "support"
+  ]
+}

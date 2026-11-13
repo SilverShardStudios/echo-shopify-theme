@@ -1,0 +1,136 @@
+<section class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="hero-title">
+        {{ section.settings.title_line_1 }}
+        <span>{{ section.settings.title_line_2 }}</span>
+        <span>{{ section.settings.title_line_3 }}</span>
+      </h1>
+      <p class="hero-description">{{ section.settings.description }}</p>
+
+      <div class="hero-actions">
+        <a href="{{ section.settings.primary_cta_url | default: '/pages/console' }}" class="echo-btn echo-btn--primary echo-btn--lg">
+          <span>{{ section.settings.primary_cta_label }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="{{ section.settings.secondary_cta_url | default: '/pages/downloads' }}" class="echo-btn echo-btn--outline echo-btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          <span>{{ section.settings.secondary_cta_label }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image-shell">
+        {% if section.settings.hero_image != blank %}
+          <img
+            src="{{ section.settings.hero_image | image_url: width: 1400 }}"
+            alt="{{ section.settings.hero_image_alt | escape }}"
+            class="hero-image"
+            loading="eager"
+          >
+        {% else %}
+          <img
+            src="{{ section.settings.hero_image_url }}"
+            alt="{{ section.settings.hero_image_alt | escape }}"
+            class="hero-image"
+            loading="eager"
+          >
+        {% endif %}
+      </div>
+      <div class="hero-caption">
+        <span>ECHO</span>
+        <span class="echo-badge echo-badge--outline">{{ section.settings.product_label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ECHO Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "INTRODUCING ECHO ONE"
+    },
+    {
+      "type": "text",
+      "id": "title_line_1",
+      "label": "Title Line 1",
+      "default": "Your games."
+    },
+    {
+      "type": "text",
+      "id": "title_line_2",
+      "label": "Title Line 2",
+      "default": "Your world."
+    },
+    {
+      "type": "text",
+      "id": "title_line_3",
+      "label": "Title Line 3",
+      "default": "Anywhere."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Play your PC library, cloud games, and Android titles on one sleek, powerful console — on the couch or on the go."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary CTA Label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary CTA Label",
+      "default": "Get the launcher"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary CTA Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Custom Hero Image (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_url",
+      "label": "Fallback Hero Image URL",
+      "default": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=80"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt",
+      "label": "Hero Image Alt Text",
+      "default": "ECHO One Console"
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Product Badge Label",
+      "default": "ECHO ONE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+<div class="auth-main">
+  <div class="auth-card">
+    <p class="eyebrow">ECHO ACCOUNT</p>
+    <h1>Sign in to your ECHO ID</h1>
+    <p>Manage your hardware reservations, warranty status, and orders.</p>
+
+    {% form 'customer_login', class: 'ticket-form' %}
+      {{ form.errors | default_errors }}
+
+      <label>
+        <span>Email</span>
+        <input type="email" name="customer[email]" class="echo-input" autocomplete="email" required>
+      </label>
+
+      {% if form.password_needed %}
+        <label>
+          <span>Password</span>
+          <input type="password" name="customer[password]" class="echo-input" autocomplete="current-password" required>
+        </label>
+      {% endif %}
+
+      <button type="submit" class="echo-btn echo-btn--primary" style="width: 100%; margin-top: 0.4rem;">
+        Sign in
+      </button>
+    {% endform %}
+  </div>
+</div>

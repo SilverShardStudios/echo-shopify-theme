@@ -1,0 +1,32 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "ECHO OS Storefront",
+    "theme_version": "1.0.0",
+    "theme_author": "SilverShardStudios",
+    "theme_documentation_url": "https://github.com/SilverShardStudios/echo-launcher",
+    "theme_support_url": "https://echoconsoles.myshopify.com/pages/support"
+  },
+  {
+    "name": "ECHO Brand & Links",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_text",
+        "label": "Announcement Bar Text",
+        "default": "ECHO One — Next-gen gaming hardware. Coming soon."
+      },
+      {
+        "type": "url",
+        "id": "apk_download_url",
+        "label": "ECHO OS Launcher APK Download URL"
+      },
+      {
+        "type": "text",
+        "id": "apk_version",
+        "label": "Launcher Version",
+        "default": "1.0.0"
+      }
+    ]
+  }
+]

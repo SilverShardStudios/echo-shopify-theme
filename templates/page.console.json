@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "console": {
+      "type": "echo-console-page",
+      "settings": {}
+    },
+    "specs": {
+      "type": "echo-specs",
+      "settings": {}
+    },
+    "features": {
+      "type": "echo-features",
+      "settings": {}
+    },
+    "waitlist": {
+      "type": "echo-waitlist",
+      "settings": {}
+    }
+  },
+  "order": [
+    "console",
+    "specs",
+    "features",
+    "waitlist"
+  ]
+}

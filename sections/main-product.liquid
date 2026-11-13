@@ -1,0 +1,81 @@
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container console-hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ product.vendor | default: 'ECHO HARDWARE' | upcase }}</p>
+        <h1 class="page-title">{{ product.title }}</h1>
+        <div class="hero-description">
+          {{ product.description }}
+        </div>
+
+        <div class="product-buy-card">
+          <div class="product-price-row">
+            <span class="product-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+              <span class="product-compare-price">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+            {% endif %}
+            <span class="echo-badge echo-badge--primary">
+              {% if product.available %}Available{% else %}Sold Out{% endif %}
+            </span>
+          </div>
+
+          {% form 'product', product %}
+            {% if product.variants.size > 1 %}
+              <label style="display: grid; gap: 0.4rem; margin-bottom: 0.85rem; font-size: 0.84rem; color: var(--muted-foreground);">
+                <span>Select Edition / Configuration</span>
+                <select name="id" class="echo-select">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                      {{ variant.title }} &mdash; {{ variant.price | money }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </label>
+            {% else %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {% endif %}
+
+            <div class="hero-actions" style="margin-top: 0;">
+              <button type="submit" name="add" class="echo-btn echo-btn--primary echo-btn--lg" {% unless product.available %}disabled{% endunless %}>
+                <span>{% if product.available %}Add to Cart{% else %}Out of Stock{% endif %}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+              <a href="/pages/downloads" class="echo-btn echo-btn--outline echo-btn--lg">
+                <span>Get ECHO OS APK</span>
+              </a>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-shell">
+          {% if product.featured_image != blank %}
+            <img
+              src="{{ product.featured_image | image_url: width: 1400 }}"
+              alt="{{ product.title | escape }}"
+              class="hero-image"
+            >
+          {% else %}
+            <img
+              src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=80"
+              alt="{{ product.title | escape }}"
+              class="hero-image"
+            >
+          {% endif %}
+        </div>
+        <div class="hero-caption">
+          <span>ECHO</span>
+          <span class="echo-badge echo-badge--outline">{{ product.title | upcase }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "settings": []
+}
+{% endschema %}

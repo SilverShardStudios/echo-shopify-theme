@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "waitlist": {
+      "type": "echo-waitlist",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "waitlist"
+  ]
+}

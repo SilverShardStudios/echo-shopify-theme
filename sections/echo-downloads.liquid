@@ -1,0 +1,131 @@
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container narrow-container">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1 class="page-title">{{ section.settings.headline }}</h1>
+      <p class="hero-description">{{ section.settings.subtitle }}</p>
+    </div>
+  </section>
+
+  <section class="launcher-section">
+    <div class="container">
+      <article class="launcher-card">
+        <div class="launcher-header">
+          <div class="launcher-symbol">E</div>
+          <div>
+            <h2>{{ section.settings.launcher_title }}</h2>
+            <p class="launcher-meta">
+              Version {{ section.settings.launcher_version }} &middot; {{ section.settings.launcher_platform }} &middot; Free
+            </p>
+          </div>
+        </div>
+
+        <p class="launcher-description">{{ section.settings.launcher_description }}</p>
+
+        <div class="launcher-cta-row">
+          <a
+            href="{{ section.settings.apk_url }}"
+            target="_blank"
+            rel="noreferrer"
+            class="echo-btn echo-btn--primary echo-btn--lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>{{ section.settings.cta_label }}</span>
+          </a>
+          <p class="launcher-requirements">{{ section.settings.requirements }}</p>
+        </div>
+
+        <div class="install-steps">
+          <p class="eyebrow">HOW TO INSTALL</p>
+          <ol>
+            <li>
+              <span>1</span>
+              <p>Download the APK file to your Android device or ECHO One console.</p>
+            </li>
+            <li>
+              <span>2</span>
+              <p>Open the file and allow installation from unknown sources if prompted.</p>
+            </li>
+            <li>
+              <span>3</span>
+              <p>Launch ECHO OS and set it as your default home screen (supports single-screen TV consoles &amp; dual-screen clamshell handhelds).</p>
+            </li>
+          </ol>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="download-grid-section">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">FIRMWARE &amp; ESSENTIALS</p>
+        <h2>Everything else for your ECHO setup.</h2>
+      </div>
+
+      <div class="download-grid">
+        <article class="download-card">
+          <div class="download-top">
+            <span class="echo-badge echo-badge--primary">Launcher APK</span>
+            <span class="version-pill">v{{ section.settings.launcher_version }}</span>
+          </div>
+          <h3>ECHO OS Console Home Launcher</h3>
+          <p>Full custom boot animation, ambient console UI, dual-screen clamshell spanning &amp; secondary presentation display support, plus full analog stick/D-pad navigation.</p>
+          <a href="{{ section.settings.apk_url }}" target="_blank" rel="noreferrer" class="download-link">
+            <span>Download ECHO-OS-v{{ section.settings.launcher_version }}.apk</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+        </article>
+
+        <article class="download-card">
+          <div class="download-top">
+            <span class="echo-badge">GitHub Release</span>
+            <span class="version-pill">v{{ section.settings.launcher_version }}</span>
+          </div>
+          <h3>ECHO OS Source &amp; Releases</h3>
+          <p>View release notes, verify checksums, and browse the open release repository on GitHub.</p>
+          <a href="https://github.com/SilverShardStudios/echo-launcher/releases/tag/v1.0.0" target="_blank" rel="noreferrer" class="download-link">
+            <span>Open GitHub Releases</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+        </article>
+
+        <article class="download-card">
+          <div class="download-top">
+            <span class="echo-badge">Documentation</span>
+            <span class="version-pill">2026.1</span>
+          </div>
+          <h3>Quickstart &amp; Dual-Screen Setup Guide</h3>
+          <p>Controller mapping reference, dual-screen clamshell mode toggle, and TV HDMI dock calibration.</p>
+          <a href="/pages/support" class="download-link">
+            <span>View Support Docs</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "ECHO Downloads",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "DOWNLOADS" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "ECHO Launcher" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Transform any Android device or dual-screen handheld into an ECHO console. Custom home screen, controller-first navigation, and unified game library." },
+    { "type": "text", "id": "launcher_title", "label": "Launcher Title", "default": "ECHO Console Launcher" },
+    { "type": "text", "id": "launcher_version", "label": "Launcher Version", "default": "1.0.0" },
+    { "type": "text", "id": "launcher_platform", "label": "Launcher Platform", "default": "Android 8.0+" },
+    { "type": "textarea", "id": "launcher_description", "label": "Launcher Description", "default": "The official home screen launcher that powers ECHO One. Install it on any Android phone, tablet, TV box, or dual-screen handheld for a console-grade interface with full controller support, Dual-Screen Clamshell Mode, quick game switching, and unified library management." },
+    { "type": "text", "id": "cta_label", "label": "Download Button Label", "default": "Download APK" },
+    { "type": "text", "id": "apk_url", "label": "Direct APK Download URL", "default": "https://github.com/SilverShardStudios/echo-launcher/releases/download/v1.0.0/ECHO-OS-v1.0.0.apk" },
+    { "type": "text", "id": "requirements", "label": "Requirements Text", "default": "Requires Android 8.0 or later · ~8 MB" }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Downloads"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+<section class="features-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.headline }}</h2>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <span class="feature-index">01</span>
+        <h3>{{ section.settings.feature_1_title }}</h3>
+        <p>{{ section.settings.feature_1_description }}</p>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-index">02</span>
+        <h3>{{ section.settings.feature_2_title }}</h3>
+        <p>{{ section.settings.feature_2_description }}</p>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-index">03</span>
+        <h3>{{ section.settings.feature_3_title }}</h3>
+        <p>{{ section.settings.feature_3_description }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ECHO Features",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WHY ECHO ONE" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Less limits. More game." },
+    { "type": "text", "id": "feature_1_title", "label": "Feature 1 Title", "default": "Play your existing library" },
+    { "type": "textarea", "id": "feature_1_description", "label": "Feature 1 Description", "default": "Stream from your gaming PC, connect to cloud services, or install Android games directly. Your collection travels with you." },
+    { "type": "text", "id": "feature_2_title", "label": "Feature 2 Title", "default": "Console-grade feel" },
+    { "type": "textarea", "id": "feature_2_description", "label": "Feature 2 Description", "default": "Precision controls, active thermal management, and a custom launcher UI that makes everything feel native and effortless." },
+    { "type": "text", "id": "feature_3_title", "label": "Feature 3 Title", "default": "Handheld to big screen" },
+    { "type": "textarea", "id": "feature_3_description", "label": "Feature 3 Description", "default": "Drop into the optional dock for instant TV output with full controller support. Pick it back up without missing a beat." }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Features"
+    }
+  ]
+}
+{% endschema %}

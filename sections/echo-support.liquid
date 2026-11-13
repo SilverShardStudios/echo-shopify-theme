@@ -1,0 +1,166 @@
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container narrow-container">
+      <div class="support-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+        <span>SUPPORT CENTER</span>
+      </div>
+      <h1 class="page-title">{{ section.settings.headline }}</h1>
+      <p class="hero-description">{{ section.settings.subtitle }}</p>
+    </div>
+  </section>
+
+  <section class="support-main-section">
+    <div class="container support-grid">
+      <div class="faq-panel">
+        <div class="faq-search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input
+            type="text"
+            id="echo-faq-search"
+            class="echo-input"
+            placeholder="Search support topics"
+            aria-label="Search support topics"
+          >
+        </div>
+
+        <div class="faq-list" id="echo-faq-list">
+          <article class="faq-card" data-faq-item>
+            <button type="button" class="faq-trigger" onclick="this.parentElement.querySelector('.faq-answer').toggleAttribute('hidden')">
+              <div>
+                <p class="faq-category">Shipping &amp; Orders</p>
+                <h3>When do pre-order units ship?</h3>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
+            <p class="faq-answer">Batch 2 pre-orders are scheduled for Q3 2026. You will receive a lock-in email 14 days before dispatch.</p>
+          </article>
+
+          <article class="faq-card" data-faq-item>
+            <button type="button" class="faq-trigger" onclick="this.parentElement.querySelector('.faq-answer').toggleAttribute('hidden')">
+              <div>
+                <p class="faq-category">ECHO OS Launcher</p>
+                <h3>How do I enable Dual-Screen Mode on Anbernic RG DS or clamshell handhelds?</h3>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
+            <p class="faq-answer" hidden>ECHO OS automatically detects secondary displays via Android DisplayManager and also includes a top-bar "SPAN 2X / AUTO DS / 1X" toggle so you can split the Upper Visual Showcase and Lower Touch Command Deck across both screens.</p>
+          </article>
+
+          <article class="faq-card" data-faq-item>
+            <button type="button" class="faq-trigger" onclick="this.parentElement.querySelector('.faq-answer').toggleAttribute('hidden')">
+              <div>
+                <p class="faq-category">Dock &amp; Display</p>
+                <h3>Why is my TV not switching to 120Hz via Dock?</h3>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
+            <p class="faq-answer" hidden>Enable HDMI 2.1 Enhanced format on your TV input, use an Ultra High Speed HDMI cable, and set ECHO Display Output to 120Hz in Settings.</p>
+          </article>
+
+          <article class="faq-card" data-faq-item>
+            <button type="button" class="faq-trigger" onclick="this.parentElement.querySelector('.faq-answer').toggleAttribute('hidden')">
+              <div>
+                <p class="faq-category">Account &amp; Cloud</p>
+                <h3>Can I use multiple game stores on ECHO One?</h3>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
+            <p class="faq-answer" hidden>Yes. ECHO OS supports your existing PC streaming, cloud gaming services, and native Android titles in one unified library.</p>
+          </article>
+
+          <article class="faq-card" data-faq-item>
+            <button type="button" class="faq-trigger" onclick="this.parentElement.querySelector('.faq-answer').toggleAttribute('hidden')">
+              <div>
+                <p class="faq-category">Warranty</p>
+                <h3>What does the hardware warranty cover?</h3>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </button>
+            <p class="faq-answer" hidden>Every unit includes a 1-year limited hardware warranty covering manufacturing defects, thermal module faults, and controller hall-sensor drift.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="ticket-panel">
+        <h2>Open a support ticket</h2>
+        <p>Provide device details and we will route your issue to a hardware specialist.</p>
+
+        {% form 'contact', class: 'ticket-form' %}
+          <label>
+            <span>Your name</span>
+            <input type="text" name="contact[name]" class="echo-input" placeholder="Alex Mercer" required>
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="contact[email]" class="echo-input" placeholder="alex@domain.com" required>
+          </label>
+
+          <label>
+            <span>Device model / serial (optional)</span>
+            <input type="text" name="contact[device_model]" class="echo-input" placeholder="ECHO-ONE-1TB / E1-204982">
+          </label>
+
+          <label>
+            <span>Issue category</span>
+            <select name="contact[category]" class="echo-select">
+              <option value="Firmware & Boot">Firmware &amp; Boot</option>
+              <option value="ECHO OS Launcher">ECHO OS Launcher</option>
+              <option value="Dock & Display Output">Dock &amp; Display Output</option>
+              <option value="Controllers & Input">Controllers &amp; Input</option>
+              <option value="Orders & Shipping">Orders &amp; Shipping</option>
+              <option value="Warranty & Repairs">Warranty &amp; Repairs</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Describe the issue</span>
+            <textarea name="contact[body]" class="echo-textarea" placeholder="Include steps to reproduce, firmware version, and when it started." rows="5" required></textarea>
+          </label>
+
+          <button type="submit" class="echo-btn echo-btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+            <span>Submit support request</span>
+          </button>
+
+          {% if form.posted_successfully? %}
+            <p class="ticket-status">Ticket received. Our support team will reply to your email within 24 hours.</p>
+          {% elsif form.errors %}
+            <p class="ticket-status">{{ form.errors | default_errors }}</p>
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('echo-faq-search');
+    if (!searchInput) return;
+    searchInput.addEventListener('input', function(e) {
+      var q = e.target.value.toLowerCase().trim();
+      var items = document.querySelectorAll('[data-faq-item]');
+      items.forEach(function(item) {
+        var text = item.textContent.toLowerCase();
+        item.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "ECHO Support Center",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Need help with ECHO One?" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Search instant answers or send a direct support ticket to our hardware engineering team." }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Support Center"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,129 @@
+{% assign featured_product = all_products[section.settings.featured_product] %}
+{% if featured_product == blank and collections['all'].products.size > 0 %}
+  {% assign featured_product = collections['all'].products.first %}
+{% endif %}
+
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container console-hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="page-title">{{ section.settings.headline }}</h1>
+        <p class="hero-description">{{ section.settings.description }}</p>
+
+        {% if featured_product != blank %}
+          <div class="product-buy-card">
+            <div class="product-price-row">
+              <span class="product-price">{{ featured_product.price | money }}</span>
+              {% if featured_product.compare_at_price > featured_product.price %}
+                <span class="product-compare-price">{{ featured_product.compare_at_price | money }}</span>
+              {% endif %}
+              <span class="echo-badge echo-badge--primary">
+                {% if featured_product.available %}In Stock / Pre-Order{% else %}Waitlist Only{% endif %}
+              </span>
+            </div>
+
+            {% form 'product', featured_product %}
+              <input type="hidden" name="id" value="{{ featured_product.selected_or_first_available_variant.id }}">
+              {% if featured_product.variants.size > 1 %}
+                <div style="margin-bottom: 0.75rem;">
+                  <select name="id" class="echo-select" aria-label="Select configuration">
+                    {% for variant in featured_product.variants %}
+                      <option value="{{ variant.id }}" {% if variant == featured_product.selected_or_first_available_variant %}selected{% endif %}>
+                        {{ variant.title }} - {{ variant.price | money }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+
+              <div class="hero-actions" style="margin-top: 0;">
+                <button type="submit" name="add" class="echo-btn echo-btn--primary echo-btn--lg" {% unless featured_product.available %}disabled{% endunless %}>
+                  <span>{% if featured_product.available %}Pre-order ECHO One{% else %}Sold Out{% endif %}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+                <a href="/pages/downloads" class="echo-btn echo-btn--outline echo-btn--lg">
+                  <span>Download launcher</span>
+                </a>
+              </div>
+            {% endform %}
+          </div>
+        {% else %}
+          <div class="hero-actions">
+            <a href="#waitlist" class="echo-btn echo-btn--primary echo-btn--lg">
+              <span>Join early access</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="/pages/downloads" class="echo-btn echo-btn--outline echo-btn--lg">
+              <span>Download launcher</span>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-shell">
+          {% if featured_product != blank and featured_product.featured_image != blank %}
+            <img
+              src="{{ featured_product.featured_image | image_url: width: 1400 }}"
+              alt="{{ featured_product.title | escape }}"
+              class="hero-image"
+            >
+          {% else %}
+            <img
+              src="{{ section.settings.image_url }}"
+              alt="ECHO One Console"
+              class="hero-image"
+            >
+          {% endif %}
+        </div>
+        <div class="hero-caption">
+          <span>ECHO</span>
+          <span class="echo-badge echo-badge--outline">ECHO ONE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "ECHO Console Showcase",
+  "settings": [
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "ECHO One Shopify Product (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "ECHO ONE"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Engineered like a console. Built for everything you play."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Play your PC library, cloud games, and Android titles on one sleek, powerful console — on the couch or on the go."
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Fallback Showcase Image URL",
+      "default": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1400&q=80"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Console Showcase"
+    }
+  ]
+}
+{% endschema %}

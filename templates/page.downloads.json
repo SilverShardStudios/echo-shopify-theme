@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "downloads": {
+      "type": "echo-downloads",
+      "settings": {}
+    }
+  },
+  "order": [
+    "downloads"
+  ]
+}

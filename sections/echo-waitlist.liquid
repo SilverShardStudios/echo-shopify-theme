@@ -1,0 +1,52 @@
+<section id="waitlist" class="waitlist-section">
+  <div class="container waitlist-card">
+    <div>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.headline }}</h2>
+      <p class="waitlist-copy">{{ section.settings.description }}</p>
+    </div>
+
+    {% form 'customer', class: 'waitlist-form' %}
+      <input type="hidden" name="contact[tags]" value="waitlist, echo-one">
+      <div class="waitlist-controls">
+        <input
+          type="email"
+          name="contact[email]"
+          value="{{ form.email }}"
+          placeholder="{{ section.settings.placeholder }}"
+          aria-label="Email address"
+          class="echo-input"
+          required
+        >
+        <button type="submit" class="echo-btn echo-btn--primary">
+          <span>{{ section.settings.cta_label }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      {% if form.posted_successfully? %}
+        <p class="waitlist-feedback">You're on the list. We'll notify you first when ECHO One drops.</p>
+      {% elsif form.errors %}
+        <p class="waitlist-feedback">{{ form.errors | default_errors }}</p>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ECHO Waitlist",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "EARLY ACCESS" },
+    { "type": "text", "id": "headline", "label": "Headline", "default": "Be first. Play next." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Join the waitlist for priority access, launch pricing, and exclusive hardware updates." },
+    { "type": "text", "id": "placeholder", "label": "Email Placeholder", "default": "Enter your email" },
+    { "type": "text", "id": "cta_label", "label": "Button Label", "default": "Notify me" }
+  ],
+  "presets": [
+    {
+      "name": "ECHO Waitlist"
+    }
+  ]
+}
+{% endschema %}

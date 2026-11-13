@@ -1,0 +1,59 @@
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">HARDWARE &amp; ACCESSORIES</p>
+      <h1 class="page-title">{{ collection.title | default: 'ECHO Store' }}</h1>
+      {% if collection.description != blank %}
+        <p class="hero-description">{{ collection.description }}</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="download-grid-section">
+    <div class="container">
+      {% if collection.products.size > 0 %}
+        <div class="download-grid">
+          {% for product in collection.products %}
+            <article class="download-card">
+              {% if product.featured_image != blank %}
+                <a href="{{ product.url }}" style="display: block; border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--border);">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 800 }}"
+                    alt="{{ product.title | escape }}"
+                    style="width: 100%; height: 200px; object-fit: cover; display: block;"
+                  >
+                </a>
+              {% endif %}
+              <div class="download-top">
+                <span class="echo-badge echo-badge--primary">{{ product.price | money }}</span>
+                <span class="version-pill">{% if product.available %}In Stock{% else %}Waitlist{% endif %}</span>
+              </div>
+              <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <p>{{ product.description | strip_html | truncate: 130 }}</p>
+              <a href="{{ product.url }}" class="download-link">
+                <span>View Product</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <article class="launcher-card">
+          <h2>ECHO One Hardware Lineup</h2>
+          <p class="launcher-description">Hardware units are currently in early access allocation. Explore the ECHO One console specs or download the ECHO OS Android Launcher today.</p>
+          <div class="hero-actions">
+            <a href="/pages/console" class="echo-btn echo-btn--primary">Explore ECHO One</a>
+            <a href="/pages/downloads" class="echo-btn echo-btn--outline">Download Launcher APK</a>
+          </div>
+        </article>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "specs": {
+      "type": "echo-specs",
+      "settings": {}
+    },
+    "features": {
+      "type": "echo-features",
+      "settings": {}
+    },
+    "waitlist": {
+      "type": "echo-waitlist",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "specs",
+    "features",
+    "waitlist"
+  ]
+}

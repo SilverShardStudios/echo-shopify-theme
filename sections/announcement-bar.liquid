@@ -1,0 +1,28 @@
+{% if section.settings.show_announcement %}
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>{{ section.settings.text }}</span>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "ECHO One — Next-gen gaming hardware. Coming soon."
+    }
+  ]
+}
+{% endschema %}

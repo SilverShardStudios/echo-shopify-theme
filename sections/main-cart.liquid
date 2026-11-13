@@ -1,0 +1,79 @@
+<div class="page-main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">YOUR ORDER</p>
+      <h1 class="page-title">Shopping Cart</h1>
+    </div>
+  </section>
+
+  <section class="launcher-section">
+    <div class="container">
+      {% if cart.item_count > 0 %}
+        <form action="{{ routes.cart_url }}" method="post" novalidate class="launcher-card">
+          <div style="display: grid; gap: 1rem;">
+            {% for item in cart.items %}
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  {% if item.image %}
+                    <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" style="width: 72px; height: 72px; object-fit: cover; border-radius: 0.6rem; border: 1px solid var(--border);">
+                  {% endif %}
+                  <div>
+                    <h3 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem;">
+                      <a href="{{ item.url }}">{{ item.product.title }}</a>
+                    </h3>
+                    {% unless item.product.has_only_default_variant %}
+                      <p style="margin: 0.2rem 0 0; color: var(--muted-foreground); font-size: 0.84rem;">{{ item.variant.title }}</p>
+                    {% endunless %}
+                    <p style="margin: 0.25rem 0 0; color: var(--primary); font-weight: 600;">{{ item.final_price | money }}</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <input
+                    type="number"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    min="0"
+                    aria-label="Quantity for {{ item.title | escape }}"
+                    class="echo-input"
+                    style="width: 5rem; text-align: center;"
+                  >
+                  <span style="font-family: var(--font-display); font-weight: 700; min-width: 5.5rem; text-align: right;">
+                    {{ item.final_line_price | money }}
+                  </span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.5rem;">
+            <div>
+              <p class="eyebrow">SUBTOTAL</p>
+              <p class="product-price" style="margin: 0.25rem 0 0;">{{ cart.total_price | money }}</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button type="submit" name="update" class="echo-btn echo-btn--outline echo-btn--lg">Update Cart</button>
+              <button type="submit" name="checkout" class="echo-btn echo-btn--primary echo-btn--lg">Proceed to Checkout</button>
+            </div>
+          </div>
+        </form>
+      {% else %}
+        <article class="launcher-card">
+          <h2>Your cart is currently empty.</h2>
+          <p class="launcher-description">Explore the ECHO One hardware showcase or download the free ECHO OS Android Launcher APK.</p>
+          <div class="hero-actions">
+            <a href="/pages/console" class="echo-btn echo-btn--primary">Explore ECHO One</a>
+            <a href="/pages/downloads" class="echo-btn echo-btn--outline">Download Launcher APK</a>
+          </div>
+        </article>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}
